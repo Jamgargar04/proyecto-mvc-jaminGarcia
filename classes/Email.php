@@ -14,17 +14,17 @@ class Email {
         $this->nombre = $nombre;
         $this->token = $token;
     }
-
+    
     public function enviarConfirmacion()
     {
         // create a new object
         $mail = new PHPMailer();
         $mail->isSMTP();
-        $mail->Host = $_ENV['sandbox.smtp.mailtrap.io'];
+        $mail->Host = $_ENV['EMAIL_HOST'];
         $mail->SMTPAuth = true;
-        $mail->Port = $_ENV['2525'];
-        $mail->Username = $_ENV['dc37aab2b0c106'];
-        $mail->Password = $_ENV['bed4f238a3002b'];
+        $mail->Port = $_ENV['EMAIL_PORT'];
+        $mail->Username = $_ENV['EMAIL_USER'];
+        $mail->Password = $_ENV['EMAIL_PASS'];
 
         $mail->setFrom('cuentas@misitio.com');
         $mail->addAddress($this->email, $this->nombre);
@@ -56,11 +56,11 @@ class Email {
         // create a new object
         $mail = new PHPMailer();
         $mail->isSMTP();
-        $mail->Host = $_ENV['sandbox.smtp.mailtrap.io'];
+        $mail->Host = $_ENV['EMAIL_HOST'];
         $mail->SMTPAuth = true;
-        $mail->Port = $_ENV['2525'];
-        $mail->Username = $_ENV['dc37aab2b0c106'];
-        $mail->Password = $_ENV['bed4f238a3002b'];
+        $mail->Port = $_ENV['EMAIL_PORT'];
+        $mail->Username = $_ENV['EMAIL_USER'];
+        $mail->Password = $_ENV['EMAIL_PASS'];
 
         $mail->setFrom('cuentas@misitio.com');
         $mail->addAddress($this->email, $this->nombre);
